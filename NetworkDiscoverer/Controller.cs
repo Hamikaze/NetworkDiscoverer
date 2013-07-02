@@ -5,19 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using SnmpSharpNet;
 
-
+// All Controllers must inherit from this Abstract Controller!
 
 namespace NetworkDiscoverer
 {
-    interface IController
+    abstract class Controller
     {
-        protected String startIPAddress;
-        protected String endIPAddress;
-        protected String passwd;
-        protected String community;
+        // those vars are potentially usfull in all controller subclasses.
+        protected string startIPAddress;
+        protected string endIPAddress;
+        protected string passwd;
+        protected string community;
         protected int netmask;
+        protected string oid;
 
-        public String EndIPAddress
+        public string EndIPAddress
         {
             get { return endIPAddress; }
             //set { endIPAddress = value; }
@@ -29,24 +31,25 @@ namespace NetworkDiscoverer
             //set { netmask = value; }
         }
 
-        public String Community
+        public string Community
         {
             get { return community; }
             //set { community = value; }
         }
 
-        public String Passwd
+        public string Passwd
         {
             get { return passwd; }
             //set { passwd = value; }
         }
 
 
-        public String StartIPAddress
+        public string StartIPAddress
         {
             get { return startIPAddress; }
             //set { startIPAddress = value; }
         }
+
 
     }
 }
